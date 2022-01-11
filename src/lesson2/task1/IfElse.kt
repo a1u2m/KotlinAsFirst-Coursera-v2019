@@ -4,6 +4,7 @@ package lesson2.task1
 
 import lesson1.task1.discriminant
 import kotlin.math.max
+import kotlin.math.roundToLong
 import kotlin.math.sqrt
 
 /**
@@ -66,12 +67,14 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
 fun ageDescription(age: Int): String {
 
     val firstForm = arrayOf(1, 21, 31, 41, 51, 61, 71, 81, 91, 101, 121, 131, 141, 151, 161, 171, 181, 191)
-    val secondForm = arrayOf(2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64, 72, 73, 74, 82, 83, 84, 92, 93, 94, 102, 103, 104, 122, 123, 124, 132, 133, 134, 142, 143, 144, 152, 153, 154, 162, 163, 164, 172, 173, 174, 182, 183, 184, 192, 193, 194)
+    val secondForm = arrayOf(2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64, 72, 73,
+        74, 82, 83, 84, 92, 93, 94, 102, 103, 104, 122, 123, 124, 132, 133, 134, 142, 143, 144, 152, 153,
+        154, 162, 163, 164, 172, 173, 174, 182, 183, 184, 192, 193, 194)
 
     if (age <= 0 || age >= 200) return "Нет такого возраста"
 
     return if (age in firstForm) "$age год"
-    else if(age in secondForm) "$age года"
+    else if (age in secondForm) "$age года"
     else "$age лет"
 
 }
@@ -87,7 +90,21 @@ fun timeForHalfWay(
     t1: Double, v1: Double,
     t2: Double, v2: Double,
     t3: Double, v3: Double
-): Double = TODO()
+): Double {
+
+    val distance1: Double = t1 * v1
+    val distance2: Double = t2 * v2
+    val distance3: Double = t3 * v3
+    val halfWay: Double = (distance1 + distance2 + distance3) / 2.0
+
+    return if (distance1 >= halfWay) {
+        (halfWay / v1)
+    } else if (distance1 + distance2 >= halfWay) {
+        t1 + (halfWay - distance1) / v2
+    } else {
+        t1 + t2 + (halfWay - distance1 - distance2) / v3
+    }
+}
 
 /**
  * Простая
