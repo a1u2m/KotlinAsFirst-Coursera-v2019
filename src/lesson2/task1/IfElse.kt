@@ -3,6 +3,7 @@
 package lesson2.task1
 
 import lesson1.task1.discriminant
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToLong
 import kotlin.math.sqrt
@@ -126,10 +127,8 @@ fun whichRookThreatens(
         return 3;
     } else if (kingX == rookX1 || kingY == rookY1) {
         return 1;
-    } else if (kingX == rookX2 || kingY == rookY2) {
-        return 2;
     } else {
-        return 0
+        return 2;
     }
 }
 
@@ -147,7 +146,17 @@ fun rookOrBishopThreatens(
     kingX: Int, kingY: Int,
     rookX: Int, rookY: Int,
     bishopX: Int, bishopY: Int
-): Int = TODO()
+): Int {
+    if ((kingX != rookX && kingY != rookY) && (abs(bishopX - kingX) != abs(bishopY - kingY))) {
+        return 0;
+    } else if (((kingX == rookX || kingY == rookY) && (abs(bishopX - kingX) != abs(bishopY - kingY)))) {
+        return 1;
+    } else if (((kingX != rookX && kingY != rookY) && (abs(bishopX - kingX) == abs(bishopY - kingY)))) {
+        return 2;
+    } else {
+        return 3;
+    }
+}
 
 /**
  * Простая
