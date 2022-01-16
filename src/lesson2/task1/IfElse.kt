@@ -3,10 +3,8 @@
 package lesson2.task1
 
 import lesson1.task1.discriminant
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.roundToLong
-import kotlin.math.sqrt
+import kotlin.math.*
+import kotlin.time.measureTime
 
 /**
  * Пример
@@ -68,9 +66,11 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
 fun ageDescription(age: Int): String {
 
     val firstForm = arrayOf(1, 21, 31, 41, 51, 61, 71, 81, 91, 101, 121, 131, 141, 151, 161, 171, 181, 191)
-    val secondForm = arrayOf(2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64, 72, 73,
+    val secondForm = arrayOf(
+        2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64, 72, 73,
         74, 82, 83, 84, 92, 93, 94, 102, 103, 104, 122, 123, 124, 132, 133, 134, 142, 143, 144, 152, 153,
-        154, 162, 163, 164, 172, 173, 174, 182, 183, 184, 192, 193, 194)
+        154, 162, 163, 164, 172, 173, 174, 182, 183, 184, 192, 193, 194
+    )
 
     if (age <= 0 || age >= 200) return "Нет такого возраста"
 
@@ -166,7 +166,19 @@ fun rookOrBishopThreatens(
  * прямоугольным (вернуть 1) или тупоугольным (вернуть 2).
  * Если такой треугольник не существует, вернуть -1.
  */
-fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
+fun triangleKind(a: Double, b: Double, c: Double): Int {
+
+    if ((a >= b + c) || (b >= a + c) || (c >= a + b)) {
+        return -1
+    } else if ((a * b + b * c == c * c) || (a * a + c * c == b * b) || (b * b + c * c == a * a)) {
+        return 1
+    } else if ((a * a + b * b > c * c) && (a * a + c * c > b * b) && (b * b + c * c > a * a)) {
+        return 0
+    } else {
+        return 2
+    }
+
+}
 
 /**
  * Средняя
