@@ -4,6 +4,7 @@ package lesson2.task2
 
 import lesson1.task1.sqr
 import lesson3.task1.fibSequenceDigit
+import kotlin.math.abs
 
 /**
  * Пример
@@ -27,17 +28,15 @@ fun isNumberHappy(number: Int): Boolean {
     var third = 0
     var fourth = 0
 
-    first = temp%10
+    first = temp % 10
     temp /= 10
-    second = temp%10
+    second = temp % 10
     temp /= 10
-    third = temp%10
+    third = temp % 10
     temp /= 10
-    fourth = temp%10
+    fourth = temp % 10
 
     return first + second == third + fourth
-
-
 }
 
 /**
@@ -47,7 +46,8 @@ fun isNumberHappy(number: Int): Boolean {
  * Определить, угрожают ли они друг другу. Вернуть true, если угрожают.
  * Считать, что ферзи не могут загораживать друг друга.
  */
-fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = TODO()
+fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean =
+    (abs(x1 - x2) == abs(y1 - y2)) || (x1 == x2) || (y1 == y2)
 
 
 /**
