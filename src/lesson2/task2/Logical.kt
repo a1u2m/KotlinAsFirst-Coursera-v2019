@@ -3,6 +3,7 @@
 package lesson2.task2
 
 import lesson1.task1.sqr
+import lesson3.task1.fibSequenceDigit
 
 /**
  * Пример
@@ -18,7 +19,26 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Четырехзначное число назовем счастливым, если сумма первых двух ее цифр равна сумме двух последних.
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
-fun isNumberHappy(number: Int): Boolean = TODO()
+fun isNumberHappy(number: Int): Boolean {
+
+    var temp = number
+    var first = 0
+    var second = 0
+    var third = 0
+    var fourth = 0
+
+    first = temp%10
+    temp /= 10
+    second = temp%10
+    temp /= 10
+    third = temp%10
+    temp /= 10
+    fourth = temp%10
+
+    return first + second == third + fourth
+
+
+}
 
 /**
  * Простая
