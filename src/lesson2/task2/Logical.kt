@@ -56,7 +56,58 @@ fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean =
  * Дан номер месяца (от 1 до 12 включительно) и год (положительный).
  * Вернуть число дней в этом месяце этого года по григорианскому календарю.
  */
-fun daysInMonth(month: Int, year: Int): Int = TODO()
+fun daysInMonth(month: Int, year: Int): Int {
+
+    val jan = 31
+    val feb = 28
+    val febLeap = 29
+    val mar = 31
+    val apr = 30
+    val may = 31
+    val jun = 30
+    val jul = 31
+    val aug = 31
+    val sep = 30
+    val oct = 31
+    val nov = 30
+    val dec = 31
+
+    val leapYears = arrayOf(100, 200, 300, 500, 600, 700, 900, 1000, 1100, 1300, 1400, 1500, 1700, 1800, 1900)
+
+    if ((year % 4 == 0) && (year !in leapYears)) {
+
+        when (month) {
+            1 -> return jan
+            2 -> return febLeap
+            3 -> return mar
+            4 -> return apr
+            5 -> return may
+            6 -> return jun
+            7 -> return jul
+            8 -> return aug
+            9 -> return sep
+            10 -> return oct
+            11 -> return nov
+            12 -> return dec
+        }
+    } else {
+        when (month) {
+            1 -> return jan
+            2 -> return feb
+            3 -> return mar
+            4 -> return apr
+            5 -> return may
+            6 -> return jun
+            7 -> return jul
+            8 -> return aug
+            9 -> return sep
+            10 -> return oct
+            11 -> return nov
+            12 -> return dec
+        }
+    }
+    return 0
+}
 
 /**
  * Средняя
