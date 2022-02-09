@@ -133,14 +133,35 @@ fun lcm(m: Int, n: Int): Int {
  *
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
-fun minDivisor(n: Int): Int = TODO()
+fun minDivisor(n: Int): Int {
+
+    var m = 2
+
+    while (true) {
+        if (n % m == 0) {
+            return m
+        }
+        m++
+    }
+}
 
 /**
  * Простая
  *
  * Для заданного числа n > 1 найти максимальный делитель, меньший n
  */
-fun maxDivisor(n: Int): Int = TODO()
+fun maxDivisor(n: Int): Int {
+
+    var m = n - 1
+
+    while (m > 0) {
+        if (n % m == 0) {
+            return m
+        }
+        m--
+    }
+    return 0
+}
 
 /**
  * Простая
