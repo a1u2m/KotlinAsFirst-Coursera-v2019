@@ -227,7 +227,21 @@ fun squareBetweenExists(m: Int, n: Int): Boolean {
  * Написать функцию, которая находит, сколько шагов требуется для
  * этого для какого-либо начального X > 0.
  */
-fun collatzSteps(x: Int): Int = TODO()
+fun collatzSteps(x: Int): Int {
+
+    var temp = x
+    var step = 0
+
+    while (temp != 1) {
+        if (temp % 2 == 0) {
+            temp = temp / 2
+        } else {
+            temp = temp * 3 + 1
+        }
+        step++
+    }
+    return step
+}
 
 /**
  * Средняя
