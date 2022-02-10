@@ -252,7 +252,11 @@ fun collatzSteps(x: Int): Int {
  * Подумайте, как добиться более быстрой сходимости ряда при больших значениях x.
  * Использовать kotlin.math.sin и другие стандартные реализации функции синуса в этой задаче запрещается.
  */
-fun sin(x: Double, eps: Double): Double = TODO()
+fun sin(x: Double, eps: Double): Double {
+
+    return 0.0
+
+}
 
 /**
  * Средняя
@@ -272,7 +276,18 @@ fun cos(x: Double, eps: Double): Double = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun revert(n: Int): Int = TODO()
+fun revert(n: Int): Int {
+
+    var temp = n
+    var number = 0
+
+    while (temp != 0) {
+        val digit = temp % 10
+        number = number * 10 + digit
+        temp /= 10
+    }
+    return number
+}
 
 /**
  * Средняя
