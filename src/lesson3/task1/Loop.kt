@@ -2,6 +2,8 @@
 
 package lesson3.task1
 
+import lesson1.task1.sqr
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
@@ -194,7 +196,20 @@ fun isCoPrime(m: Int, n: Int): Boolean {
  * то есть, существует ли такое целое k, что m <= k*k <= n.
  * Например, для интервала 21..28 21 <= 5*5 <= 28, а для интервала 51..61 квадрата не существует.
  */
-fun squareBetweenExists(m: Int, n: Int): Boolean = TODO()
+fun squareBetweenExists(m: Int, n: Int): Boolean {
+
+    var k = 1
+
+    if (m == 1 && n == 1) return true
+
+    while (sqrt(k.toDouble()) < n) {
+        if (m <= k.toDouble().pow(2) && n >= k.toDouble().pow(2)) {
+            return true
+        }
+        k++
+    }
+    return false
+}
 
 /**
  * Средняя
